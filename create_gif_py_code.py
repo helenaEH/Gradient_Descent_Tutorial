@@ -56,13 +56,13 @@ def gradient_steps(Xtrue, ytrue, slope, intercept, learning_rate):
         INTERCEPT_NEW = intercept - intercept_gradient * learning_rate
 
         # Reset our slope and intercept
-        SLOPE = SLOPE_NEW
-        INTERCEPT = INTERCEPT_NEW
+        slope = SLOPE_NEW
+        intercept = INTERCEPT_NEW
 
         # Prints only every 10th interation
         if i % 10 == 0:
             plt.scatter(Xtrue, ytrue, s=0.5)
-            plt.plot(Xtrue, make_line(Xtrue, SLOPE, INTERCEPT))
+            plt.plot(Xtrue, make_line(Xtrue, slope, intercept))
             plt.title(f'gradient_descent_at_step_{i}')
             plt.savefig(f'plots/step_{i}.png')
             plt.figure()
